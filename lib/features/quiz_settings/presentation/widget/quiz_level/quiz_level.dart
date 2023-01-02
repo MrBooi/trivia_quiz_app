@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:opentrivia/features/quiz_settings/presentation/widget/quiz_level/quiz_level_controller.dart';
+import 'package:opentrivia/features/quiz_settings/presentation/quiz_settings_controller.dart';
 
 enum Difficulty {
   any,
@@ -13,8 +13,9 @@ class QuizLevel extends ConsumerWidget {
   const QuizLevel({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedLevel = ref.watch(quizLevelController);
+    final selectedDifficulty = ref.watch(quizQuestionTypeProvider);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 12),
         const Text("Select Quiz Difficulty Level"),
@@ -30,12 +31,12 @@ class QuizLevel extends ConsumerWidget {
                   (difficulty) => ActionChip(
                     label: Text(difficulty.name),
                     labelStyle: const TextStyle(color: Colors.white),
-                    backgroundColor: selectedLevel == difficulty
+                    backgroundColor: selectedDifficulty == difficulty
                         ? Colors.green // TODO Move this
                         : Colors.grey.shade600,
                     onPressed: () => ref
-                        .read(quizLevelController.notifier)
-                        .onLevelChanged(difficulty),
+                        .read(quizSettingsController.notifier)
+                        .updateDifficulty(difficulty),
                   ),
                 )
                 .toList(),

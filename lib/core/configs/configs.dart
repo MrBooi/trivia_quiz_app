@@ -15,4 +15,8 @@ class Configs {
   /// List of total number of questions per quiz
   ///
   static const List<int> totalNumberOfQuiz = [10, 20, 30, 40, 50];
+
+  /// List of Question type user can select
+  ///
+  static const List<String> questionTypes = ['True/False', 'Multiple choice'];
 }
