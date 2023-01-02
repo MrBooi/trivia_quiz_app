@@ -5,9 +5,7 @@ import 'package:opentrivia/features/categorie/domain/category.dart';
 import 'package:opentrivia/features/quiz/domain/i_question_facade.dart';
 import 'package:opentrivia/features/quiz/domain/question.dart';
 import 'package:opentrivia/features/quiz_settings/domain/quiz_settings.dart';
-import 'package:opentrivia/features/quiz_settings/presentation/widget/number_of_questions/number_of_questions_controller.dart';
-import 'package:opentrivia/features/quiz_settings/presentation/widget/quiz_level/quiz_level.dart';
-import 'package:opentrivia/features/quiz_settings/presentation/widget/quiz_level/quiz_level_controller.dart';
+import 'package:opentrivia/features/quiz_settings/presentation/quiz_settings_controller.dart';
 
 class QuestionFacade implements IQuestionFacade {
   QuestionFacade(this._httpService);
@@ -43,12 +41,7 @@ final questionFacadeProvider = Provider<QuestionFacade>((ref) {
 });
 
 final questionQuizProvider = Provider<QuizSettingsModel>((ref) {
-  final quizLevel = ref.watch(quizLevelController);
-  final totalQuestions = ref.watch(numberOfQuestionsController);
-  return QuizSettingsModel(
-    difficulty: quizLevel == Difficulty.any ? null : quizLevel.name,
-    total: totalQuestions,
-  );
+  return ref.watch(quizSettingsController);
 });
 
 final questionsListProvider =
@@ -61,25 +54,4 @@ final questionsListProvider =
     total: questionQuiz.total,
     difficulty: questionQuiz.difficulty,
   );
-});
-
-final questionOptionsProvider =
-    Provider.family<List<String>, CategoryID>((ref, categoryID) {
-  final questions = ref.watch(questionsListProvider(categoryID)).value;
-  late List<String> options;
-  if (questions != null) {
-    final question = questions[0]; // update provider
-
-    print(question.type);
-
-    options = [...question.incorrectAnswers];
-    if (!options.contains(question.correctAnswer)) {
-      options.add(question.correctAnswer);
-      options.shuffle();
-    }
-  } else {
-    options = [];
-  }
-
-  return options;
 });
