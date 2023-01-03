@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:opentrivia/features/quiz_settings/presentation/quiz_settings_controller.dart';
+import 'package:opentrivia/features/quiz_settings/presentation/widget/settings_action_chip.dart';
 
 enum Difficulty {
   any,
@@ -28,12 +29,9 @@ class QuizLevel extends ConsumerWidget {
           children: [
             ...Difficulty.values
                 .map(
-                  (difficulty) => ActionChip(
-                    label: Text(difficulty.name),
-                    labelStyle: const TextStyle(color: Colors.white),
-                    backgroundColor: selectedDifficulty == difficulty
-                        ? Colors.green // TODO Move this
-                        : Colors.grey.shade600,
+                  (difficulty) => SettingActionChip(
+                    isSelected: selectedDifficulty == difficulty,
+                    label: difficulty.name,
                     onPressed: () => ref
                         .read(quizSettingsController.notifier)
                         .updateDifficulty(difficulty),
