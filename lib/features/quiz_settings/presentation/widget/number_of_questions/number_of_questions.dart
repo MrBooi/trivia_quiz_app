@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:opentrivia/core/configs/configs.dart';
 import 'package:opentrivia/features/quiz_settings/presentation/quiz_settings_controller.dart';
+import 'package:opentrivia/features/quiz_settings/presentation/widget/settings_action_chip.dart';
 
 class NumberOfQuestions extends ConsumerWidget {
   const NumberOfQuestions({super.key});
@@ -23,12 +24,9 @@ class NumberOfQuestions extends ConsumerWidget {
           children: [
             ...Configs.totalNumberOfQuiz
                 .map(
-                  (number) => ActionChip(
-                    label: Text('$number'),
-                    labelStyle: const TextStyle(color: Colors.white),
-                    backgroundColor: selectedNumber == number
-                        ? Colors.green // TODO Move this
-                        : Colors.grey.shade600,
+                  (number) => SettingActionChip(
+                    label: '$number',
+                    isSelected: selectedNumber == number,
                     onPressed: () => ref
                         .read(quizSettingsController.notifier)
                         .updateNumberOfQuestions(number),
