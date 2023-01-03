@@ -6,6 +6,7 @@ import 'package:opentrivia/features/quiz/domain/i_question_facade.dart';
 import 'package:opentrivia/features/quiz/domain/question.dart';
 import 'package:opentrivia/features/quiz_settings/domain/quiz_settings.dart';
 import 'package:opentrivia/features/quiz_settings/presentation/quiz_settings_controller.dart';
+import 'package:opentrivia/features/quiz_settings/presentation/widget/quiz_type/quiz_question_type.dart';
 
 class QuestionFacade implements IQuestionFacade {
   QuestionFacade(this._httpService);
@@ -15,6 +16,7 @@ class QuestionFacade implements IQuestionFacade {
   Future<List<Question>> getQuestions({
     required String id,
     required int total,
+    required QuizLevelType type,
     String? difficulty,
   }) async {
     // TODO Hanlde Errors
@@ -24,7 +26,8 @@ class QuestionFacade implements IQuestionFacade {
       queryParameters: {
         'amount': total,
         'category': id,
-        if (difficulty != null) 'difficulty': difficulty
+        if (difficulty != null) 'difficulty': difficulty,
+        'type': type.name
       },
     );
 
@@ -44,8 +47,8 @@ final questionQuizProvider = Provider<QuizSettingsModel>((ref) {
   return ref.watch(quizSettingsController);
 });
 
-final questionsListProvider =
-    FutureProvider.family<List<Question>, CategoryID>((ref, categoryID) {
+final questionsListProvider = FutureProvider.autoDispose
+    .family<List<Question>, CategoryID>((ref, categoryID) {
   final questionFacade = ref.watch(questionFacadeProvider);
   final questionQuiz = ref.watch(questionQuizProvider);
 
@@ -53,5 +56,6 @@ final questionsListProvider =
     id: categoryID.toString(),
     total: questionQuiz.total,
     difficulty: questionQuiz.difficulty,
+    type: questionQuiz.type,
   );
 });
