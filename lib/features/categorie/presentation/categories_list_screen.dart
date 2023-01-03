@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opentrivia/core/styles/app_colors.dart';
 import 'package:opentrivia/features/categorie/presentation/categorie_list/categories_grid.dart';
 
 class CategoriesListScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class CategoriesListScreen extends StatelessWidget {
               "Tap on a category to start the quiz.", // TODO Move this to tranlation file
               style: TextStyle(
                 // TODO Move style
-                color: Colors.white,
+                color: AppColors.white,
                 fontWeight: FontWeight.w500,
                 fontSize: 16.0,
               ),

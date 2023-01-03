@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opentrivia/core/styles/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String title;
@@ -19,7 +20,7 @@ class PrimaryButton extends StatelessWidget {
         height: 50.0,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.green,
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(25.0),
         ),
         alignment: Alignment.center,
@@ -28,7 +29,7 @@ class PrimaryButton extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18.0,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
+            color: AppColors.white,
           ),
         ),
       ),
