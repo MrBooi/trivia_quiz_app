@@ -14,7 +14,7 @@ class NumberOfQuestions extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 12),
-        const Text("Select Total Number of Questions"),
+        const Text('Select Total Number of Questions'),
         const SizedBox(height: 8),
         Wrap(
           alignment: WrapAlignment.center,

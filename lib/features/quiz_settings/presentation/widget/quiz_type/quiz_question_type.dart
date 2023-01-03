@@ -20,7 +20,7 @@ class QuizQuestionType extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 12),
-        const Text("Select Quiz Question Type"),
+        const Text('Select Quiz Question Type'),
         const SizedBox(height: 8),
         Wrap(
           alignment: WrapAlignment.center,

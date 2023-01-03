@@ -32,7 +32,7 @@ class QuestionFacade implements IQuestionFacade {
     );
 
     List<Map<String, dynamic>> questions = List<Map<String, dynamic>>.from(
-      response["results"],
+      response['results'],
     );
     return Question.fromData(questions);
   }

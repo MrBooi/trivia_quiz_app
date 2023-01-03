@@ -8,7 +8,7 @@ part 'category_response.g.dart';
 class CategoryResponse with _$CategoryResponse {
   const CategoryResponse._();
   factory CategoryResponse({
-    @JsonKey(name: "trivia_categories")
+    @JsonKey(name: 'trivia_categories')
         required List<Category> triviaCategories,
   }) = _CategoryResponse;
 

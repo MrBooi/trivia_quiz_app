@@ -13,7 +13,7 @@ class CategoriesListScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
-              "Tap on a category to start the quiz.", // TODO Move this to tranlation file
+              'Tap on a category to start the quiz.', // TODO Move this to tranlation file
               style: TextStyle(
                 // TODO Move style
                 color: AppColors.white,

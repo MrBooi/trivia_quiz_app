@@ -10,7 +10,7 @@ class Configs {
   /// BASE API URL of [OpenTrivia] API
   ///
   /// see: https://opentdb.com/api.php
-  static const String apiBaseUrl = "https://opentdb.com";
+  static const String apiBaseUrl = 'https://opentdb.com';
 
   /// List of total number of questions per quiz
   ///

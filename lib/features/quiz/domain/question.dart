@@ -8,12 +8,12 @@ class Question with _$Question {
   const Question._();
 
   factory Question({
-    @JsonKey(name: "category") required String categoryName,
+    @JsonKey(name: 'category') required String categoryName,
     required String type,
     required String difficulty,
     required String question,
-    @JsonKey(name: "correct_answer") required String correctAnswer,
-    @JsonKey(name: "incorrect_answers") required List<String> answers,
+    @JsonKey(name: 'correct_answer') required String correctAnswer,
+    @JsonKey(name: 'incorrect_answers') required List<String> answers,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>
