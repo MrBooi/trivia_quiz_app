@@ -36,19 +36,35 @@ class DioHttpService implements HttpService {
     Map<String, dynamic>? queryParameters,
     bool forceRefresh = false,
   }) async {
-    final Response<dynamic> response = await dio.get<Map<String, dynamic>>(
-      endpoint,
-      queryParameters: queryParameters,
-    );
-    if (response.data == null || response.statusCode != 200) {
-      throw HttpException(
-        title: 'Http Error!',
-        statusCode: response.statusCode,
-        message: response.statusMessage,
+    try {
+      final Response<dynamic> response = await dio.get<Map<String, dynamic>>(
+        endpoint,
+        queryParameters: queryParameters,
       );
-    }
+      if (response.data == null || response.statusCode != 200) {
+        throw GeneralException(
+          message: response.data['message'],
+        );
+      }
 
-    return response.data as Map<String, dynamic>;
+      return response.data as Map<String, dynamic>;
+    } on GeneralException catch (_) {
+      rethrow;
+    } on DioError catch (error) {
+      switch (error.type) {
+        case DioErrorType.other:
+          if (error.message.contains('SocketException')) {
+            throw SocketException();
+          } else {
+            throw ServerException();
+          }
+        case DioErrorType.response:
+        default:
+          throw GeneralException(message: error.response?.data['error']);
+      }
+    } catch (e) {
+      throw ServerException();
+    }
   }
 }
 
