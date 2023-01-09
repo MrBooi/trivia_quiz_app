@@ -11,8 +11,7 @@ class CategoryFacade implements ICategoryFacade {
 
   @override
   Future<CategoryResponse> getCategories() async {
-    // TODO HANDLE ERRORS
-    const endpoint = '/api_category.php'; // TODO Move This To config
+    const endpoint = '/api_category.php';
     final response = await _httpService.get(endpoint);
     return CategoryResponse.fromJson(response);
   }
