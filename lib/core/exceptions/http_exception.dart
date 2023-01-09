@@ -1,17 +1,15 @@
-class HttpException implements Exception {
-  /// Creates a new instance of [HttpException]
-  HttpException({
-    this.title,
-    this.message,
-    this.statusCode,
-  });
+class GeneralException implements Exception {
+  final String message;
 
-  /// Exception title
-  final String? title;
-
-  /// Exception message
-  final String? message;
-
-  /// Exception http response code
-  final int? statusCode;
+  GeneralException({required this.message});
 }
+
+class SocketException implements Exception {
+  SocketException();
+}
+
+class ServerException implements Exception {
+  ServerException();
+}
+
+class CacheException implements Exception {}
