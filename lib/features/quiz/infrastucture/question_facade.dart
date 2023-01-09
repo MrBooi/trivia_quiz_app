@@ -19,8 +19,7 @@ class QuestionFacade implements IQuestionFacade {
     required QuizLevelType type,
     String? difficulty,
   }) async {
-    // TODO Hanlde Errors
-    const endpoint = '/api.php'; // TODO Move This To config
+    const endpoint = '/api.php';
     final response = await _httpService.get(
       endpoint,
       queryParameters: {
