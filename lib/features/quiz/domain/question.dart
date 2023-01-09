@@ -13,7 +13,8 @@ class Question with _$Question {
     required String difficulty,
     required String question,
     @JsonKey(name: 'correct_answer') required String correctAnswer,
-    @JsonKey(name: 'incorrect_answers') required List<String> answers,
+    @JsonKey(name: 'incorrect_answers') required List<String> incorrect,
+    List<String>? options,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>
@@ -22,7 +23,7 @@ class Question with _$Question {
   static Map<String, dynamic> _jsonModel(Map<String, dynamic> json) {
     return {
       ...json,
-      'incorrect_answers': List<String>.from(json['incorrect_answers'] ?? [])
+      'options': List<String>.from(json['incorrect_answers'] ?? [])
         ..add(json['correct_answer'] ?? '')
         ..shuffle()
     };

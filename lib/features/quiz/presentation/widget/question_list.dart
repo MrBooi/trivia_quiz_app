@@ -12,7 +12,7 @@ class QuestionList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(quizControllerProvider);
     return Column(
-      children: question.answers
+      children: question.options!
           .map(
             (answer) => QuestionOption(
               answer: answer,
