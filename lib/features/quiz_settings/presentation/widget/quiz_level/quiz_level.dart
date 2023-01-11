@@ -30,6 +30,7 @@ class QuizLevel extends ConsumerWidget {
             ...Difficulty.values
                 .map(
                   (difficulty) => SettingActionChip(
+                    key: ValueKey(difficulty.name),
                     isSelected: selectedDifficulty == difficulty,
                     label: difficulty.name,
                     onPressed: () => ref
