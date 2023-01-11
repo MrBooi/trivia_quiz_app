@@ -31,6 +31,7 @@ class QuizQuestionType extends ConsumerWidget {
             ...QuizLevelType.values
                 .map(
                   (type) => SettingActionChip(
+                    key: ValueKey(type.message),
                     label: type.message,
                     isSelected: selectedType == type,
                     onPressed: () => ref
