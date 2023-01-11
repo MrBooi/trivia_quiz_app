@@ -25,6 +25,7 @@ class NumberOfQuestions extends ConsumerWidget {
             ...Configs.totalNumberOfQuiz
                 .map(
                   (number) => SettingActionChip(
+                    key: ValueKey('$number'),
                     label: '$number',
                     isSelected: selectedNumber == number,
                     onPressed: () => ref
