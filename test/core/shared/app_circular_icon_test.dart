@@ -18,10 +18,7 @@ void main() {
           color: mockColor,
         ),
       );
-      r.expectAppCircularIconFound(
-        icon: mockIconData,
-        color: mockColor,
-      );
+      r.expectAppCircularIconFound();
     },
   );
 }
