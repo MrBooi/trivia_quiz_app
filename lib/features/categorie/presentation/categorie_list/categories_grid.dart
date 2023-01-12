@@ -37,6 +37,7 @@ class CategoryGrid extends ConsumerWidget {
                   (_, idx) {
                     final category = categories.triviaCategories[idx];
                     return CategoryCard(
+                      key: Key('${category.id}'),
                       category: category,
                     );
                   },
