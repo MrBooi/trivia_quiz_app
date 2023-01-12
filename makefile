@@ -14,6 +14,16 @@ flutter_gen_run:
 	fluttergen
 
 
+flutter_coverage:
+	flutter test --coverage
+
+flutter_coverage_files:
+	genhtml coverage/lcov.info -o coverage/html
+
+flutter_open_coverage_html:
+	open coverage/html/index.html
+
+
 flutter_native_splash:
 	flutter pub run flutter_native_splash:create
 	
