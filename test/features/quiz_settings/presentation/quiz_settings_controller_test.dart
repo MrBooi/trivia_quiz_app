@@ -8,18 +8,12 @@ import 'package:opentrivia/features/quiz_settings/presentation/widget/quiz_type/
 import '../../../fixtures/quiz_settings/quiz_settings_fixture.dart';
 
 void main() {
-  late QuizSettingsController quizSetting;
-
   group('QuizSettingsController', () {
     ProviderContainer makeProviderContainer() {
       final container = ProviderContainer();
       addTearDown(container.dispose);
       return container;
     }
-
-    setUp(() {
-      quizSetting = QuizSettingsController();
-    });
 
     test('should updated quiz difficulty from easy to hard.', () {
       const mockQuizLevel = Difficulty.hard;
