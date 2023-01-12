@@ -24,16 +24,8 @@ class SharedRobot {
     expect(primaryButton, findsOneWidget);
   }
 
-  void expectAppCircularIconFound({
-    required IconData icon,
-    required Color color,
-  }) async {
-    final appCircularIcon = find.byWidget(
-      AppCircularIcon(
-        icon: icon,
-        color: color,
-      ),
-    );
+  void expectAppCircularIconFound() async {
+    final appCircularIcon = find.byType(AppCircularIcon);
     expect(appCircularIcon, findsOneWidget);
     await tester.pumpAndSettle();
   }
