@@ -12,9 +12,9 @@ class QuizSettingsRobot {
 
   void foundQuizSettings() {
     final finder = find.text('Quiz Settings');
-    final AppBarWidget = find.byType(TriviaAppBar);
+    final appBarWidget = find.byType(TriviaAppBar);
     expect(finder, findsOneWidget);
-    expect(AppBarWidget, findsOneWidget);
+    expect(appBarWidget, findsOneWidget);
   }
 
   void expectNumberOfQuestionsFound() {

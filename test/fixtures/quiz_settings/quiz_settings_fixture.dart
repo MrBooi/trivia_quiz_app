@@ -39,3 +39,7 @@ List<Category> get categories => [
 CategoryResponse get categoryResponseFixture => CategoryResponse(
       triviaCategories: categories,
     );
+
+CategoryResponse get emptyCategoryResponseFixture => CategoryResponse(
+      triviaCategories: [],
+    );
