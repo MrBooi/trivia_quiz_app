@@ -6,7 +6,7 @@ import 'package:opentrivia/features/categorie/infrastucture/category_facade.dart
 
 import 'core/shared/shared_robot.dart';
 import 'features/categorie/categories_robot.dart';
-import 'fixtures/quiz_settings/quiz_settings_fixture.dart';
+import 'fixtures/categories/categories_fixtures.dart';
 import 'fixtures/quiz_settings/quiz_settings_robot.dart';
 
 class Robot {

@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:opentrivia/features/categorie/domain/category_response.dart';
 import 'package:opentrivia/features/categorie/infrastucture/category_facade.dart';
 
-import '../../../fixtures/quiz_settings/quiz_settings_fixture.dart';
+import '../../../fixtures/categories/categories_fixtures.dart';
 
 void main() {
   group('CategoryFacade', () {

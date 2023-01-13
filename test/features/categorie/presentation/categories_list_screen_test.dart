@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../fixtures/quiz_settings/quiz_settings_fixture.dart';
+import '../../../fixtures/categories/categories_fixtures.dart';
 import '../../../robot.dart';
 
 void main() {
