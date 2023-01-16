@@ -13,7 +13,7 @@ class Question with _$Question {
     required String difficulty,
     required String question,
     @JsonKey(name: 'correct_answer') required String correctAnswer,
-    @JsonKey(name: 'incorrect_answers') required List<String> incorrect,
+    @JsonKey(name: 'incorrect_answers') required List<String> incorrectAnswers,
     List<String>? options,
   }) = _Question;
 
