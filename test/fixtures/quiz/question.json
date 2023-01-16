@@ -1,0 +1,33 @@
+{
+    
+    "results": [
+        {
+            "category": "Animals",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question":
+                "The now extinct species &quot;Thylacine&quot; was native to where?",
+            "correct_answer": "Tasmania, Australia",
+            "incorrect_answers": [
+              "Baluchistan, Pakistan",
+              "Wallachia, Romania",
+              "Oregon, United States"
+            ]
+        },{
+            "category": "Animals",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "What are rhino\/'s horn made of?",
+            "correct_answer": "Keratin",
+            "incorrect_answers": ["Bone", "Ivory", "Skin"]
+        },
+        {
+        "category": "Animals",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Cashmere is the wool from which kind of animal?",
+        "correct_answer": "Goat",
+        "incorrect_answers": ["Sheep", "Camel", "Llama"]
+        }
+    ]
+}
