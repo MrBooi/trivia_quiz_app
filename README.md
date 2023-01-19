@@ -10,18 +10,16 @@ I've been reading about riverpod on Twitter, so this project is a way for me to 
 
 ### First-Time Setup
 
-
-
 ```
 git clone https://github.com/MrBooi/trivia_quiz_app
 make flutter_build_runner
+```
+### Running the tests
+ Use the following command to run both widget and unit tests
 
 ```
-
-### Running the test
-Simply run `make_futter_test` to run both the unit and widget test
-
-
+make flutter_test
+```
 
 To explore the test coverage, run tests with following commands
 ```
