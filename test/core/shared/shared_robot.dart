@@ -7,10 +7,12 @@ class SharedRobot {
   SharedRobot(this.tester);
 
   final WidgetTester tester;
-  Future<void> pumpEntryForSharedWidgets(Widget child) async {
+  Future<void> pumpEntryForSharedWidgets(Widget child,
+      {List<Override> overrides = const []}) async {
     // * Entry point of the app
     await tester.pumpWidget(
       ProviderScope(
+        overrides: overrides,
         child: MaterialApp(
           home: child,
         ),

@@ -6,6 +6,7 @@ import 'package:opentrivia/features/categorie/infrastucture/category_facade.dart
 
 import 'core/shared/shared_robot.dart';
 import 'features/categorie/categories_robot.dart';
+import 'features/quiz/quiz_robot.dart';
 import 'fixtures/categories/categories_fixtures.dart';
 import 'fixtures/quiz_settings/quiz_settings_robot.dart';
 
@@ -13,12 +14,14 @@ class Robot {
   Robot(this.tester)
       : shared = SharedRobot(tester),
         quizSettingsRobot = QuizSettingsRobot(tester),
-        categoriesRobot = CategoriesRobot(tester);
+        categoriesRobot = CategoriesRobot(tester),
+        quizRobot = QuizRobot(tester);
 
   final WidgetTester tester;
   final SharedRobot shared;
   final QuizSettingsRobot quizSettingsRobot;
   final CategoriesRobot categoriesRobot;
+  final QuizRobot quizRobot;
 
   Future<void> pumpMyApp() async {
     // * Entry point of the app
