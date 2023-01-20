@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:opentrivia/core/shared/app_circular_icon.dart';
 
-import 'shared_robot.dart';
+import '../../robot.dart';
 
 void main() {
   testWidgets(
     'Should render AppCircularIcon widget.',
     (tester) async {
-      final r = SharedRobot(tester);
+      final r = Robot(tester);
       const mockIconData = Icons.check;
       const mockColor = Colors.green;
 
-      await r.pumpEntryForSharedWidgets(
+      await r.pumpEntryForSingleWidget(
         const AppCircularIcon(
           icon: mockIconData,
           color: mockColor,
         ),
       );
-      r.expectAppCircularIconFound();
+      r.shared.expectAppCircularIconFound();
     },
   );
 }
