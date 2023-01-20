@@ -38,6 +38,20 @@ class Robot {
     await tester.pumpAndSettle();
   }
 
+  Future<void> pumpEntryForSingleWidget(Widget child,
+      {List<Override> overrides = const []}) async {
+    // * Entry point of the app
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: overrides,
+        child: MaterialApp(
+          home: child,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+  }
+
   Future<void> tapOnSettingsIcon() async {
     final finder = find.byType(IconButton);
     expect(finder, findsOneWidget);

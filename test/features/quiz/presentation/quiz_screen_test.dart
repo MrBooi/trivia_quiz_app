@@ -11,7 +11,7 @@ void main() {
   final mockCategory = categoryFixture.copyWith(id: 27, name: 'Animals');
   testWidgets('Should verify that we are on Quiz Screen.', (tester) async {
     final r = Robot(tester);
-    await r.shared.pumpEntryForSharedWidgets(
+    await r.pumpEntryForSingleWidget(
       overrides: [
         categoriesListProvider.overrideWith((ref) async {
           return categoryResponseFixture;
@@ -32,7 +32,7 @@ void main() {
 
   testWidgets('Should return message if no questions found.', (tester) async {
     final r = Robot(tester);
-    await r.shared.pumpEntryForSharedWidgets(
+    await r.pumpEntryForSingleWidget(
       overrides: [
         categoriesListProvider.overrideWith((ref) async {
           return categoryResponseFixture;
@@ -52,4 +52,27 @@ void main() {
       'Please update your settings, we could not find trivia questions.',
     );
   });
+
+  // testWidgets('Should return error widget if API fails..', (tester) async {
+  //   final r = Robot(tester);
+  //   await r.shared.pumpEntryForSharedWidgets(
+  //     overrides: [
+  //       categoriesListProvider.overrideWith((ref) async {
+  //         return categoryResponseFixture;
+  //       }),
+  //       questionsListProvider.overrideWith(
+  //         (ref, arg) => ref.future,
+  //       )
+  //     ],
+  //     QuizScreen(
+  //       category: mockCategory,
+  //     ),
+  //   );
+
+  //   r.quizRobot.expectCategoryNameFound(mockCategory.name);
+  //   r.quizRobot.expectQuizBodyFound();
+  //   r.quizRobot.expectEmptyTextFound(
+  //     'Please update your settings, we could not find trivia questions.',
+  //   );
+  // });
 }

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:opentrivia/core/shared/app_circular_icon.dart';
 
@@ -7,19 +5,6 @@ class SharedRobot {
   SharedRobot(this.tester);
 
   final WidgetTester tester;
-  Future<void> pumpEntryForSharedWidgets(Widget child,
-      {List<Override> overrides = const []}) async {
-    // * Entry point of the app
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: overrides,
-        child: MaterialApp(
-          home: child,
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-  }
 
   void expectPrimaryButtonFound(String title) async {
     final primaryButton = find.text(title);
