@@ -5,6 +5,8 @@ import 'package:opentrivia/core/styles/app_colors.dart';
 import 'package:opentrivia/features/quiz/domain/question.dart';
 import 'package:opentrivia/features/quiz/presentation/controller/quiz_controller.dart';
 
+const totalCorrectAnswers = Key('total-correct-answers');
+
 class QuizResultsWidget extends ConsumerWidget {
   final List<Question> questions;
 
@@ -21,7 +23,8 @@ class QuizResultsWidget extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'You got ${state.correct.length} out of ${questions.length} questions correctly!',
+          '${state.correct.length} ${questions.length}',
+          key: totalCorrectAnswers,
           style: const TextStyle(
             color: AppColors.primary,
             fontSize: 60.0,
