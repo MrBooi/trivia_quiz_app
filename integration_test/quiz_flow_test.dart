@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import '../test/fixtures/categories/categories_fixtures.dart';
 import '../test/fixtures/quiz_settings/quiz_settings_fixture.dart';
 import '../test/robot.dart';
 
@@ -25,12 +26,15 @@ void main() {
       await r.quizSettingsRobot.tapQuizQuestionType(quizSettingsFixture.type);
 
       // close settings screen
-      // TODO click on close button
+      await r.quizSettingsRobot.tapOnBackButton();
 
-      // // tap on category item
-      // r.categoriesRobot.expectCategoryMainTextFound();
-      // // tap on category item
-      // r.categoriesRobot.tapCategoryItem(categories[3].id.toString());
+      // tap on category item
+      r.categoriesRobot.expectCategoryMainTextFound();
+      // tap on category item
+      await r.categoriesRobot.tapCategoryItem(categories[3].id.toString());
+
+      // verify we on quiz screen
+      r.quizRobot.expectCategoryNameFound(categories[3].name);
     });
   });
 }

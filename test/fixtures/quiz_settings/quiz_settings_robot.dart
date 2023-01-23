@@ -67,4 +67,11 @@ class QuizSettingsRobot {
     await tester.tap(finder);
     await tester.pumpAndSettle();
   }
+
+  Future<void> tapOnBackButton() async {
+    final finder = find.byIcon(Icons.arrow_back_ios);
+    expect(finder, findsOneWidget);
+    await tester.tap(finder);
+    await tester.pumpAndSettle();
+  }
 }
