@@ -23,7 +23,7 @@ class QuizResultsWidget extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          '${state.correct.length} ${questions.length}',
+          '${state.correct.length} / ${questions.length}',
           key: totalCorrectAnswers,
           style: const TextStyle(
             color: AppColors.primary,

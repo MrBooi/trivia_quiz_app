@@ -19,7 +19,13 @@ class QuizLevel extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 12),
-        const Text('Select Quiz Difficulty Level'),
+        Text(
+          'Select Quiz Difficulty Level',
+          style: TextStyle(
+            color: Colors.grey.shade900,
+            fontSize: 15,
+          ),
+        ),
         const SizedBox(height: 8),
         Wrap(
           alignment: WrapAlignment.center,
