@@ -7,7 +7,7 @@ class WaveClipperWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: WaveClipperTwo(),
+      clipper: WaveClipperOne(),
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,

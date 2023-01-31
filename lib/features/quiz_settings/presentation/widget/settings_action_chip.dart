@@ -16,7 +16,7 @@ class SettingActionChip extends StatelessWidget {
     return ActionChip(
       label: Text(label),
       labelStyle: const TextStyle(color: Colors.white),
-      backgroundColor: isSelected ? Colors.green : Colors.grey.shade600,
+      backgroundColor: isSelected ? Colors.orangeAccent : Colors.grey.shade600,
       onPressed: onPressed,
     );
   }
